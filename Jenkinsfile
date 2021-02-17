@@ -9,7 +9,7 @@ pipeline {
                 AN_ACCESS_KEY = "${CC}" 
             }
             steps {
-                echo "${CC}"
+                echo "${CC} + 2"
             }
         }
     }
