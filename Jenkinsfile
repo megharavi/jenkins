@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Example') {
             environment { 
-                AN_ACCESS_KEY = ${CC} 
+                AN_ACCESS_KEY = "${CC}" 
             }
             steps {
                 echo "${CC}"
