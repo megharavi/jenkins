@@ -1,20 +1,20 @@
 pipeline {
-  agent any 
-      stages{
-      
-          stage('build'){
-            steps { echo "building stage........"
-            }
-          }
-            
-          stage ('test'){
-            steps { echo "testing code.........."
-            }
-          }
+    agent {
+        label '!windows'
+    }
 
-          stage ('deploy'){
-            steps {echo "deploying code........"
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Database engine is ${DB_ENGINE}"
+                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+                sh 'print_freestyle_project2'
             }
-          }
-      }
-  }
+        }
+    }
+}
