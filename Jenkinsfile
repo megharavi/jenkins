@@ -1,21 +1,16 @@
 pipeline {
-    agent {
-        label '!windows'
+    agent any
+    environment { 
+        CC = 'clang'
     }
-
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    }
-
     stages {
-        stage('Build') {
+        stage('Example') {
+            environment { 
+                AN_ACCESS_KEY = credentials('my-predefined-secret-text') 
+            }
             steps {
-                echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
-                sh 'print_freestyle_project1'
+                sh 'printenv'
             }
         }
     }
 }
-
