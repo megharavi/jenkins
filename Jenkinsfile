@@ -9,7 +9,7 @@ pipeline {
                 AN_ACCESS_KEY = credentials('my-predefined-secret-text') 
             }
             steps {
-                sh "${CC}"
+                sh ${CC}
             }
         }
     }
