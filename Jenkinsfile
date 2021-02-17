@@ -6,10 +6,10 @@ pipeline {
     stages {
         stage('Example') {
             environment { 
-                AN_ACCESS_KEY = credentials('my-predefined-secret-text') 
+                AN_ACCESS_KEY = ${CC} 
             }
             steps {
-                sh "${CC}"
+                echo "${CC}"
             }
         }
     }
