@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment { 
-        CC = 'clang'
+        CC = 'clanguage'
     }
     stages {
         stage('Example') {
